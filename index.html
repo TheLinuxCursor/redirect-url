@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Redirect</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        #container {
+            text-align: center;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #333;
+            color: #fff;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function redirectToWebsite(newTab) {
+            var website = document.getElementById("website").value.trim();
+            if (website !== "") {
+                if (!website.startsWith("http://") && !website.startsWith("https://")) {
+                    website = "http://" + website;
+                }
+                if (newTab) {
+                    window.open(website, "_blank");
+                } else {
+                    window.location.href = website;
+                }
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1>Redirect to a Website</h1>
+        <input type="text" id="website" placeholder="Enter website URL"><br>
+        <button onclick="redirectToWebsite(false)">Go</button>
+        <button onclick="redirectToWebsite(true)">Open in New Tab</button>
+    </div>
+</body>
+</html>
+<!-- website is ai generated so i dont own it lol -->
